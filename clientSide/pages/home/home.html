@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<script src="app.js"></script>
+
+<div id="Login">
+        <h1>Please sing in!</h1>
+    <div>
+        <p class="smallP">insert user name:</p>
+        <input ng-model="username" type="text">
+        <br>
+    </div>
+    <div>
+        <p class="smallP">insert password:</p>
+        <input ng-model="password" type="text">
+        <br>
+    </div>
+    <div>
+        <br>
+        <button style="margin-left: 4em" ng-click="login(username,password)" >Login</button>
+        <br>
+        <br>
+        <a href="#!forgotPassword" >I forgot my password!</a>
+        <br>
+        <h1>New here?</h1>
+        <a href="#!singUp" style="margin-left: 3em" >Sing Up!</a>
+
+    </div>
+</div>
+
+
+
+<div class="row">
+        <h1>Explore</h1>
+        <div class="column">
+                <span class="poiName"> {{poi1.name}} </span>
+                <br>
+                <img ng-src="{{poi1.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi1)"/>
+        </div>
+        <div class="column">
+                <span class="poiName"> {{poi2.name}} </span>
+                <br>
+                <img ng-src="{{poi2.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi2)"/>
+        </div>
+        <div class="column">
+                <span class="poiName"> {{poi3.name}} </span>
+                <br>
+                <img ng-src="{{poi3.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi3)"/>
+        </div>
+</div>
+
+
+
+</html>

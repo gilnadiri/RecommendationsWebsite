@@ -1,0 +1,31 @@
+<!-- display button functionality -->
+
+<div>
+        <button  ng-click="logoff()" >Log Off</button>
+</div>
+<div id="popularpoi">
+    <h1>your 2 popular points of interest</h1>
+    <li ng-repeat="poi in favorits">
+            <span class="poiName">{{poi.name}}
+            <img ng-src="{{poi.url}}" ng-click="showDit(poi)"/>
+
+        </span>
+    </li>
+    {{popular}}
+</div>
+
+<span> ---------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+
+<div id="lastSaved">
+        <h1>your 2 last saved points of interest</h1>
+        <li ng-repeat="poi in lastSaved">
+                <span class="poiName">{{poi.name}}
+                <img ng-src="{{poi.url}}" ng-click="showDit(poi)"/>
+
+                
+                </span>
+        </li>
+        {{saved}}
+</div>
+
+

@@ -1,0 +1,56 @@
+<button ng-click="sort()" >sort by rank</button>
+
+<button ng-click="sort_by_user()" style="margin-left: 3em" >sort by yourself</button>
+
+<button ng-click="sortBycategory()" style="margin-left: 5em">sort by category</button>
+
+<button ng-click="saveFavoritsInServer()" style="margin-left: 7em">save favorits permanently!</button>
+<br><br><br>
+
+<span >Total poi in favorits:{{counter}}</span>
+<br><br><br>
+
+
+
+
+
+
+
+
+ <!--display all favorits-->
+<div  ng-hide="showAll"> 
+    <span ><h1>your favorits points of interest:</h1></span>
+    <p ng-repeat="poi in AllFavorits" > 
+     <span class="poiName"> {{poi.name}}</span>
+     <br>
+     <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)" />
+     <button  ng-click="favoritss(poi.name)"> {{dic[poi.name]}} </button>
+     <button  ng-click="rank_and_review(poi.name)"> rank and review </button>
+    </p>
+</div>
+
+<!--display byRank-->
+<div  ng-hide="showRank"> 
+    <span ><h1>your favorits points of interest sorted by rank:</h1></span>
+    <p ng-repeat="poi in sorted" > 
+        <span class="poiName"> {{poi.name}}</span>
+        rank: {{poi.rank}}
+        <br>
+        <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+     <button  ng-click="favoritss(poi.name)"> {{dic[poi.name]}} </button>
+     <button  ng-click="rank_and_review(poi.name)"> rank and review </button>
+    </p>
+</div>
+
+<!--display bycategory-->
+<div  ng-hide="showcategory"> 
+        <span ><h1>your favorits points of interest sorted by category:</h1></span>
+        <p ng-repeat="poi in category" > 
+            <span class="poiName"> {{poi.name}}</span>
+            category: {{poi.category}}
+            <br>
+            <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)" />
+         <button  ng-click="favoritss(poi.name)"> {{dic[poi.name]}} </button>
+         <button  ng-click="rank_and_review(poi.name)"> rank and review </button>
+        </p>
+    </div>

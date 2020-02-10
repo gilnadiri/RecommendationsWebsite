@@ -1,0 +1,134 @@
+<!-- css -->
+<style>
+        img {
+            height: 100px;
+        }
+    </style>
+    
+    <span>filter by category:</span>
+    <select ng-model="selectedCategory" ng-options="item for item in categories"  ng-change="updateCategory(selectedCategory)">  </select> 
+    
+
+    
+    <span   style="margin-left: 2em">search by name:
+    <input type="text" ng-model="poiByName">
+    <button ng-click="searchByName()">search</button>
+</span>
+     
+    <button ng-click="sort()" style="margin-left: 4em">Sort by rank</button>
+    <br> <br> <br>
+
+    <button ng-show="isRegister()" ng-click="saceFavoritsInServer()" >save favorits permanently!</button>
+    <br> <br> <br>
+
+    <span ng-show="isRegister()" >total poi in favorits:{{counter}}</span>
+    <br> <br> <br>
+    
+
+
+    <!--display all pois by categories-->
+    <div  ng-hide="allcategory"> 
+            <span ><h1>atractions:</h1></span>
+            <p ng-repeat="poi in atractions" style="padding-left:15em"> 
+               <span class="poiName">{{poi.name}}</span> 
+              <br>
+             <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+             <br>     
+             <button ng-show="isRegister()" ng-click="favorits(poi.name)"> {{dic[poi.name]}} </button>
+             <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+             <br>
+             ------------------------------------------------------------------------
+            </p>
+            
+            <span ><h1>food:</h1></span>
+            <p ng-repeat="poi in food" style="padding-left:15em" > 
+                <span class="poiName">{{poi.name}}</span> 
+                    <br>
+                    <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+                    <br>
+                    <button ng-show="isRegister()" ng-click="favorits(poi.name)">{{dic[poi.name]}}</button>
+                    <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+                    <br>
+                    ------------------------------------------------------------------------                    
+
+            </p>
+            
+            <span><h1>hotels:</h1></span>
+            <p ng-repeat="poi in hotels" style="padding-left:15em" > 
+                <span class="poiName">{{poi.name}}</span>
+                        <br>
+                        <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+                        <br>
+                        <button ng-show="isRegister()" ng-click="favorits(poi.name)">{{dic[poi.name]}}</button>
+                        <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+                        <br>
+                        ------------------------------------------------------------------------                        
+
+            </p>   
+            
+            <span ><h1>shoping:</h1></span>
+            <p ng-repeat="poi in shoping" style="padding-left:15em" > 
+                <span class="poiName">{{poi.name}}</span>
+                    <br>
+                    <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+                    <br>
+                                       
+                    <button ng-show="isRegister()" ng-click="favorits(poi.name)">{{dic[poi.name]}}</button>
+                    <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+                    <br>
+                    ------------------------------------------------------------------------ 
+            </p>    
+    </div>
+    
+    <!--display one category-->
+    <div ng-hide="spesificCategory">
+            <span ><h1>{{selectedCategory}}:</h1></span>
+            <p ng-repeat="poi in selectedCategoryToShow" style="padding-left:15em" > 
+                <span class="poiName">{{poi.name}}</span>
+                <br>
+                    <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+                    <br>
+                
+                    <button ng-show="isRegister()" ng-click="favorits(poi.name)"> {{dic[poi.name]}} </button>
+                    <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+                    <br>
+                    ------------------------------------------------------------------------                    
+            </p>    
+    </div>
+    
+    
+    
+    <!--display sorted by rank-->
+    <div ng-hide="byRank">
+            <p ng-repeat="poi in sorted track by $index" style="padding-left:15em"> 
+                <span class="poiName">{{poi.name}} </span>
+                <span class="poiName" style="padding-left:3em">rank: {{poi.rank}} </span>
+                <br>
+
+                    <img ng-src="{{poi.url}}" style="width: 60%; height: 60%" ng-click="showDit(poi)"/>
+                    <button ng-show="isRegister()" ng-click="favorits(poi.name)"> {{dic[poi.name]}} </button>
+                    <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+                    <br>
+                    ------------------------------------------------------------------------               
+            </p>    
+    </div>
+    
+    
+    <!--display poi by name-->
+    <div ng-hide="byName">
+        <p style="padding-left:15em">
+        <span class="poiName">{{poiByName.name}} </span>
+        <br>
+        <img ng-src="{{poiByName.url}}"  style="width: 60%; height: 60%" ng-click="showDit(poiByName)"/>
+        <br>
+        <button ng-show="isRegister()" ng-click="favorits(poi.name)"> {{dic[poiByName.name]}} </button>
+        <button ng-show="isRegister()" ng-click="rank_and_review(poi.name)"> rank and review </button>
+        <br>
+        ------------------------------------------------------------------------
+        </p>
+    </div>
+    
+    <!--no much for poi by name-->
+    <div ng-hide="noByName">
+        there is no such point of interest-please search again
+    </div>

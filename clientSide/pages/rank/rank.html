@@ -1,0 +1,14 @@
+
+
+<span>rank and review the {{curReview}}</span>
+<br><br><br>
+
+<span>choose rank between 1-5</span>
+<select ng-model="selectedRank" ng-options="item for item in ranks" >  </select> 
+
+<span>write review:</span>
+<br>
+<input type="text" ng-model="review">
+<br><br><br>
+
+<button  ng-click="rank(selectedRank,review)"> save review </button>

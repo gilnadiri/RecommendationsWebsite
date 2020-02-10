@@ -1,0 +1,25 @@
+<div>
+        <h1>Details On {{poiName}}:</h1>
+        <p ng-style="background">
+                Description:
+                <br>
+                <br>
+                {{description}}
+                <br>
+                <br>
+                Num Of Viewers: {{num_of_viewers}}
+                <br>
+                <br>
+                Rank :{{rank}} from 5
+                <br>
+                <br>
+                Review 1 and time given :{{rev1}}
+                <br>
+                <br>
+                Review 2 and time given :{{rev2}}
+                <br>
+                <br>
+        </p>
+        <button  ng-show="isRegister()" ng-click="favoritss(poiName)"> {{dic[poiName]}} </button>
+        <button ng-click="back()" >Go Back!</button>
+</div>

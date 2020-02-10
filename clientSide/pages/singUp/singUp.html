@@ -1,0 +1,93 @@
+<div>
+        <form name="singUp" ng-submit="submit()" novalidate>
+        
+        <p>First Name:<br>
+          <input type="text" name="firstName" ng-model="firstName" required>
+          <span style="color: red" ng-show="singUp.firstName.$error.required">This is required! </span>
+          </span>
+        </p>
+
+        <p>Last Name:<br>
+            <input type="text" name="lastName" ng-model="lastName" required>
+            <span style="color: red" ng-show="singUp.lastName.$error.required">This is required! </span>
+            </span>
+          </p>
+
+          <p>User Name:<br>
+            <input type="text" name="username" ng-model="username" required minlength="3" maxlength="8" pattern="[a-zA-Z]+" ng-pattern-restrict>
+            <span style="color: red" ng-show="singUp.username.$error.required">This is required!   </span>
+            <span style="color: red" ng-show="singUp.username.$error.minlength">Minimum length is 3!     </span>
+            <span style="color: red" ng-show="singUp.username.$error.maxlength">Maximum length is 8!     </span>
+            <span style="color: red" ng-show="singUp.username.$error.pattern">Letters only! </span>
+
+            </span>
+          </p>
+
+          <p>Password:<br>
+            <input type="text" name="password" ng-model="password" required minlength="5" maxlength="10" pattern="^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]+$" ng-pattern-restrict>
+            <span style="color: red" ng-show="singUp.password.$error.required">This is required!   </span>
+            <span style="color: red" ng-show="singUp.password.$error.minlength">Minimum length is 5!     </span>
+            <span style="color: red" ng-show="singUp.password.$error.maxlength">Maximum length is 10! </span>
+            <span style="color: red" ng-show="singUp.password.$error.pattern">Letters and numbers only! </span>
+            </span>
+          </p>
+
+          <p>City:<br>
+            <input type="text" name="city" ng-model="city" required>
+            <span style="color: red" ng-show="singUp.city.$error.required">This is required! </span>
+            </span>
+          </p>
+
+          <p>Country:<br>
+            <select name= "country" ng-model="country" ng-options="item for item in countries" required> 
+                </select>
+            <span style="color: red" ng-show="singUp.country.$error.required">This is required! </span>
+            </span>
+          </p>
+
+          <p>Favorite category:<br>
+            <label name="categories" ng-repeat="cat in categories">
+                    <input
+                      type="checkbox"
+                      name="selectedFruits[]"
+                      value="{{cat}}"
+                      ng-checked="selection.indexOf(cat) > -1"
+                      ng-click="toggleSelection(cat)"
+                    > {{cat}}
+                  </label>
+            <span style="color: red" ng-show="sizeSelected==0||sizeSelected==1">Chosee at least two </span>
+            </span>
+          </p>
+
+          <p>Validation Questions:<br>
+            What was the name of your first pet? 
+                <input type="text" name="q1" ng-model="q1" required>
+                <span style="color: red" ng-show="singUp.q1.$error.required">This is required! </span>
+                </span>
+                
+<br>
+            What was the name of your childhood best friend? 
+            <input type="text" name="q2" ng-model="q2" required>
+            <span style="color: red" ng-show="singUp.q2.$error.required">This is required! </span>
+            </span>
+              </p>
+
+        
+        <p>Email:<br>
+          <input type="email" name="email" ng-model="email" required>
+          <!--    <span ng-show="myForm.email.$dirty && myForm.email.$invalid">    -->
+          <span style="color: red" ng-show="singUp.email.$error.required">Email is required.</span>
+          <span style="color: red" ng-show="singUp.email.$error.email">Invalid email address.</span>
+          </span>
+        </p>
+        
+        <p>
+          <input ng-disabled="singUp.$invalid||sizeSelected==0||sizeSelected==1" type="submit" id="submit" value="Submit">
+        </p>
+        
+        </form>
+
+
+
+
+</div>  
