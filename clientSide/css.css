@@ -1,0 +1,112 @@
+
+#menu
+{
+	width: 100%;
+	height: 80;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #6495ED;
+}
+
+li {
+    display: inline;
+    float: center;
+  }
+
+  img{
+    width:25%;
+    height: 90%;
+  }
+
+  div{
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+  }
+
+  #Login{
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    border-style: solid;
+    padding-left: 20em;
+
+
+  }
+  
+  li a {
+    color: Khaki;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: #6495ED;
+    font-style: italic;
+    font-family:Georgia;
+    float: center;
+  
+  }
+  body{
+      background-color: #d4f7f7;
+  }
+  li a:hover {
+    background-color: white;
+  }
+
+.bigP{
+    font-size: 30;
+    font-style: bold;
+}
+
+.smallP{
+    font-size: 17;
+}
+
+.poiName{
+  font-size: 25px;
+  font-style: italic;
+  
+}
+
+h1{
+    color: #6495ED;
+    font-style: bold,italic;
+}
+#aboutStart{
+    background-image: url("https://cdn.londonandpartners.com/assets/73295-640x360-london-skyline-ns.jpg");
+    clip: rect(1000spx,60px,200px,0px);
+}
+
+button{
+  border-radius: 12px;
+  background-color: #6495ED;
+  color: black;
+  font-size: 15px;
+  font-style: italic;
+  padding: 7px 11px;
+}
+
+
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

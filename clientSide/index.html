@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Website</title>
+        <link rel="stylesheet" type="text/css" href="css.css" />
+    </head>
+    <body ng-app="myApp">
+        <!-- load angular -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+        <script src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
+
+        <!-- load app -->
+        <script src="app.js"></script>
+
+        <!-- load controllers -->
+        <script src="pages/about/aboutController.js"></script>
+        <script src="pages/home/homeController.js"></script>
+        <script src="pages/poiForUsers/poiForusersCtrl.js"></script>
+        <script src="pages/singUp/singupCtrl.js"></script>
+        <script src="pages/forgotPassword/forgotPasswordCtrl.js"></script>
+        <script src="pages/poi/poiController.js"></script>
+        <script src="pages/favorits/favoritsCtrl.js"></script>
+        <script src="pages/http/httpController.js"></script>
+        <script src="pages/rank/rankCtrl.js"></script>
+        <script src="pages/manualrank/manualrankCtrl.js"></script>
+        <script src="pages/singlePoi/singlePoiCtrl.js"></script>
+
+        <!-- menu -->
+    <div id="menu">
+            <li>
+                <a href="#!">Home</a>
+            </li>
+            <li>
+                <a href="#!about">About</a>
+            </li>
+            <li>
+                <a href="#!poi">POI</a>
+            </li>
+            <li>
+                <a href="#!favorits">Favoriets POI</a>
+            </li>
+    </div>
+        <div ng-init="userName='guest'">
+                    <p id="entry" style="font-weight: 900" >hello {{userName}} !</p>
+        </div>
+        
+
+        <!-- This section changes as the hashbang changes -->
+        <div ng-view></div>
+    </body>
+</html>
